@@ -4,7 +4,8 @@ PublishScripts/
 app.config
 Web.config
 Scripts/
-App_Data/*.mdf
+App_Data/**/*.mdf
+App_Data/**/*.ldf
 .vs/
 packages/
 TestResults/
