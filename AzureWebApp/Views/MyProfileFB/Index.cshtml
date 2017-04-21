@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="envInfo" style="font-size:14pt">
+    環境情報
+    <ul>
+        <li style="font-size:12pt">この環境は、@(Model.EnvironmentInfo)</li>
+    </ul>
+</div>
+
+
+@if (Model.Exception == null)
+{
+
+<div id="content">
+    <div id="description">
+        メンバーの情報を検索してみましょう！<br />
+        -> <a href="https://graphexplorer.cloudapp.net">こんな</a>感じでテナントにログインして、認証して Graph API で得た情報をもとに以下にユーザー情報をだしたい
+    </div>
+    <div id="userPics">
+        ここにユーザーの写真を出したい。
+    </div>
+    <div id="userInfo">
+        デフォルトでユーザーの情報を出したい。
+        <ul>
+            <li>名前 : @(Model.DisplayName)</li> 
+            <li>メールアドレス : 
+            @if (Model.User != null)
+            {
+                foreach (var mail in Model.User.OtherMails)
+                {
+                    @mail;
+                }
+            }
+            else
+            {
+                @(Model.Email)
+            }
+            </li>
+            <li>誕生日 : @(Model.BirthDay)</li>
+            <li>趣味 : </li>
+            <li>その他 : </li>
+            <li>口癖 : </li>
+        </ul>
+    </div>
+
+    @using (Html.BeginForm("GetIntegTeamList", "UserInfo", FormMethod.Get))
+    {
+        <h2>@(Model.Message)</h2> <br />
+        <div>ユーザー名 : </div><input type="text" name="Alias" id="Alias" style="width:100px" value="@(Model.Alias)" /><br><br />
+        <input type="submit" value="人を取得" />
+    }
+
+
+</div>
+<div class="fb-like"
+     data-share="true"
+     data-width="450"
+     data-show-faces="true">
+</div>
+}
+else
+{
+
+    <span>Graph API のアクセス トークンが切れちゃった時用に @Html.ActionLink("ここ", "RefreshSession", "Account", null, null) をクリックしてくださいね。</span>
+    <span> メッセージ : @Model.Message </span ><br />
+    <span> エラー コード : @Model.Exception.ErrorCode </span><br />
+    <span> スタック メッセージ : @Model.Exception.Message </span><br />
+    <span> スタック : @Model.Exception.StackTrace </span><br />
+}

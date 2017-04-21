@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "GetIntegTeamList";
+}
+
+<h2>GetIntegTeamList</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>表示名</th>
+            <th>メールアドレス</th>
+            <th>趣味</th>
+            <th>情報提供者</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var item in Model)
+            {
+                <td><span>@item.DisplayName</span></td>
+                <td><span>@item.Email</span></td>
+                <td><span>@item.Hobby</span></td>
+                <td><span>@item.Supplier</span></td>
+            }
+        </tr>
+    </tbody>
+</table>

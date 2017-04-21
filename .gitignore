@@ -1,0 +1,11 @@
+bin/
+obj/
+PublishScripts/
+app.config
+Web.config
+Scripts/
+App_Data/*.mdf
+.vs/
+packages/
+TestResults/
+*.xlsx

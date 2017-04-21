@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="LineItem" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <!--Type aliases allow you to use a shorter name for long fully qualified class names.-->
+  <statements>
+    <statement id="selectTargetUserInfo" parameterClass="UserInfo" resultClass="UserInfo">
+      select
+			a.alias as Alias,
+			a.familyName as FamilyName,
+			a.firstName as FirstName,
+			a.emailAddress as EmailAddress,
+			b.hobby as Hobby,
+        (select
+            familyName + ' ' + firstName
+          from
+            USER_INFO c
+          where
+            b.supplier = c.alias
+        ) as Supplier
+        from USER_INFO a
+        inner join HOBBY_INFO b
+          on a.alias = b.alias
+      where a.alias = #Alias#
+    </statement>
+	  <statement id="selectUserInfoByFBID" parameterClass="FBUserInfo" resultClass="FBUserInfo">
+		  select
+			  a.alias as Alias,
+			  a.familyName as FamilyName,
+			  a.firstName as FirstName,
+			  a.emailAddress as Email
+			from
+				USER_INFO a
+			where a.fbUserId = #UserId#
+	  </statement>
+
+
+  </statements>
+</sqlMap>

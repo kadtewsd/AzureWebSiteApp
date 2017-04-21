@@ -1,0 +1,40 @@
+﻿<script type="text/javascript">
+
+	function buildAngular() {
+		//var AngularMVCApp = angular.module('AngularMVCApp', []);
+		// すでに宣言済み。
+		MVCController = function ($scope) {
+			$scope.MyProfile = {
+				userId: "@(Model.UserId)",
+				emailAddress: "@(Model.Email)",
+				birthDay: "@(Model.BirthDay)",
+				displayName: "@(Model.DisplayName)",
+				loginFailure: false
+			};
+		}
+		//AngularMVCApp.controller('MVCController', MVCController);
+		//MVCController.$inject = ['$scope'];
+	}
+	buildAngular();
+
+	$(document).ready(function () {
+		debugger
+		$("#alias").focus();
+	});
+</script>
+
+<h2>@ViewBag.Title.</h2>
+<p class="text-success">FaceBook と MS のアカウントを紐づけします。</p><br />
+<div id="FBInfo">
+	@using (Html.BeginForm("Update", "MyProfile", FormMethod.Post))
+	{
+		<span id="userid" name="UserId">ユーザー ID : {{MyProfile.userId}}</span><br /><br />
+		<span id="dispalayName" name="DisplayName" >表示名 : {{MyProfile.displayName}}</span><br /><br />
+		<input type="hidden" id="hdnDisplayName" name="DisplayName" value="{{MyProfile.displayName}}" />
+		<input type="hidden" id="mailAddress" name="Email" value="{{MyProfile.emailAddress}}" />
+		<input type="hidden" name="UserId" id="userId" value="{{MyProfile.userId}}"/>
+		<input type="hidden" name="BirthDay" id="birthDay" value="{{MyProfile.birthDay}}" />
+		<input class="commonText" type="text" name="Alias" id="alias" /><br /><br />
+		<input type="submit" value="登録" />
+	}
+</div>

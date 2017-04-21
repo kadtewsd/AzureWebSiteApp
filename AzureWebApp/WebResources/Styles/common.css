@@ -1,0 +1,18 @@
+﻿div#content {
+    text-align : left
+}
+
+div#description {
+    font-size : 20px;
+    font-family : Meiryo
+}
+
+div#userPics {
+    width :300px;
+    height : 300px;
+    border-style : solid;
+}
+
+.commonText {
+    width :120px;
+}

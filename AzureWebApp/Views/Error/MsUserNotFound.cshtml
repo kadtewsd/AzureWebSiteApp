@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "エラー";
+}
+
+<div id="envInfo" style="font-size:14pt">
+	エラー
+	<soan id="description"></soan>
+	メッセージ : @(Model.Alias) という名前のユーザーは社員に存在しませんでした。エイリアスを確認してください。<br /><br />
+
+	@using (Html.BeginForm("FBInfo", "MyProfile", FormMethod.Get, new {id = "backForm"}))
+	{
+		<script type="text/javascript">
+			function goBack() {
+				//var form = document.getElementById("backForm");
+				//form.action = "/MyProfile/FBInfo?UserId=@(Model.UserId)&DisplayName=@(Model.DisplayName)&Email=@(Model.Email)";
+				//form.submit();
+				//var url = "/MyProfile/FBInfo?UserId=@(Model.UserId)&DisplayName=@(Model.DisplayName)&Email=@(Model.Email)";
+				//location.href = url;
+			}
+
+		</script>
+		<hidden id="userid" name="UserId" value="@(Model.UserId)" ></hidden>
+		<hidden id="displayName" name="DisplayName" value="@(Model.DisplayName)"></hidden>
+		<hidden id="mailAddress" name="Email" value="@(Model.Email)"></hidden>
+		<br /><br />
+		<!--<a href="#"  onclick="goBack(); return false;">戻る</a> -->
+		@Html.ActionLink("戻る", "FBInfo", "MyProfile", new { UserId = Model.UserId, DisplayName = Model.DisplayName, Email = Model.Email }, new { @class = "navbar-brand" })
+	}
+</div>

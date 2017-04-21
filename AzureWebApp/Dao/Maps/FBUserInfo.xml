@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="LineItem" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <!--Type aliases allow you to use a shorter name for long fully qualified class names.-->
+  <statements>
+    <insert id="upsertFBInfo" parameterClass="FBUserInfo">
+	merge into FB_USER_INFO as a
+	using (values(#UserId#)) as Params(UserId)
+		on a.ID = #UserId#
+			WHEN MATCHED THEN
+			UPDATE SET
+				created = getdate()
+				,modified = getdate()
+			WHEN NOT MATCHED THEN
+				INSERT 
+					(ID
+					,user_name
+				)
+				VALUES
+				(
+					#UserId#
+					,#DisplayName#
+				)
+	;
+	</insert>
+	  <insert id="insertFBInfo" parameterClass="FBUserInfo">
+		insert into FB_USER_INFO 
+			(
+				ID,
+				user_name
+			)
+		select
+			#UserId# as id,
+			#DisplayName# as name
+		where
+			not exists
+			(
+				select
+					'x'
+				from
+					FB_USER_INFO a
+				where
+					a.ID = #UserId#
+				)
+		;
+	        <selectKey property="RowCount" resultClass="int" type="post">
+            <![CDATA[
+                select @@rowcount as value
+            ]]>
+        </selectKey>
+	</insert>
+	<update id="UpdateFBInfo" parameterClass="FBUserInfo">
+		update USER_INFO
+		set
+			fbUserId = #UserId#
+			,modified = getdate()
+		where
+			alias = #Alias#
+
+	        <selectKey property="RowCount" resultClass="int" type="post">
+            <![CDATA[
+                select @@rowcount as value
+            ]]>
+        </selectKey>
+	</update>
+	</statements>
+</sqlMap>
