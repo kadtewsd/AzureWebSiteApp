@@ -9,7 +9,7 @@ namespace AzureWebApp.stub
             try
             {
                 string url = HttpRuntime.AppDomainAppPath;
-                return (url.Contains("webappWebApp\\webappWebApp"));
+                return (url.Contains("AzureWebApp\\AzureWebApp"));
                 //return Environment.UserDomainName.ToLower().Contains("webapp") || Environment.UserDomainName.ToLower().Contains("fareast");
             }
             //catch (Exception e)

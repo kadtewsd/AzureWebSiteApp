@@ -186,7 +186,7 @@ namespace webappWebAppTests.Controllers
 
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, "admin@kkproj15.onmicrosoft.com"),
+                new Claim(ClaimTypes.Name, "administartor@hoge.onmicrosoft.com"),
                 new Claim(ClaimTypes.Role, "User"),
                 new Claim(ClaimTypes.Role, "PowerUser"),
             };

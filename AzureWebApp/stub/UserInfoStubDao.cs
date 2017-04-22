@@ -13,12 +13,12 @@ namespace AzureWebApp.stub
 
             stub = new Dictionary<string, Tuple<string, string, string, string>>
             {
-                {"webapp", new Tuple<string, string, string, string>("境田一輝", "", "kXXXXXd@hogehoge.com", "寝る" ) },
-                {"nofukuyo", new Tuple<string, string, string, string>("福世信隆", "", "nXXXXXo@hogehoge.com", "ぶらんど" )},
-                { "sasaeki", new Tuple<string, string, string, string>("佐伯さとみ", "", "sXXXXXki@hogehoge.com", "りょうり" )},
-                { "kenmori", new Tuple<string, string, string, string>("森けんご", "", "kXXXXXi@microsoft.com", "ぎゃぐ")},
-                { "makiyama", new Tuple<string, string, string, string>("秋山さん", "", "mXXXXXa@hogehoge.com", "子育て" )},
-                { "yoshish", new Tuple<string, string, string, string>("島崎さん", "", "yXXXXXh@hogehoge.com", "たばこ" )}
+                {"webapp", new Tuple<string, string, string, string>("a", "", "kXXXXXd@hogehoge.com", "寝る" ) },
+                {"aaaa", new Tuple<string, string, string, string>("b", "", "nXXXXXo@hogehoge.com", "ぶらんど" )},
+                { "bbbbb", new Tuple<string, string, string, string>("c", "", "sXXXXXki@hogehoge.com", "りょうり" )},
+                { "xxxxxi", new Tuple<string, string, string, string>("d", "", "kXXXXXi@hoge.com", "ぎゃぐ")},
+                { "ddgggg", new Tuple<string, string, string, string>("e", "", "mXXXXXa@hogehoge.com", "子育て" )},
+                { "3eesss", new Tuple<string, string, string, string>("f", "", "yXXXXXh@hogehoge.com", "たばこ" )}
             };
         }
 
