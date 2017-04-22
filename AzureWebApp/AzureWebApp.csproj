@@ -312,11 +312,6 @@
     <Compile Include="Request\AbstractClientRequest.cs" />
     <Compile Include="Request\Planner\IPlansRequest.cs" />
     <Compile Include="Request\Planner\PlansRequest.cs" />
-    <Compile Include="Resource1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource1.resx</DependentUpon>
-    </Compile>
     <Compile Include="Service\PostLogin\IMyProfileService.cs" />
     <Compile Include="Service\Message\IMessageService.cs" />
     <Compile Include="Service\Message\MessageService.cs" />
@@ -1190,12 +1185,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resource1.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
